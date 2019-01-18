@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Segment, Form } from 'semantic-ui-react'
 
 class AddGif extends Component {
   constructor(props) {
@@ -22,29 +22,34 @@ class AddGif extends Component {
     const { gif_url, description } = this.state
     const { handleAddGif } = this.props
     return (
-      <Form
-        onSubmit={() => {
-          console.log(gif_url, description)
-          handleAddGif(gif_url, description)
-          this.setState({ gif_url: '', description: '' })
-        }}
-      >
-        <Form.Input
-          label="Gif URL"
-          name="gif_url"
-          defaultValue={gif_url}
-          onChange={this.handleChange}
-        />
-        <Form.Input
-          label="Description"
-          name="description"
-          defaultValue={description}
-          onChange={this.handleChange}
-        />
-        <Form.Button type="submit" primary>
-          Add
-        </Form.Button>
-      </Form>
+      <Segment inverted>
+        <Form
+          inverted
+          onSubmit={() => {
+            console.log(gif_url, description)
+            handleAddGif(gif_url, description)
+            this.setState({ gif_url: '', description: '' })
+          }}
+        >
+          <Form.Group widths="equal">
+            <Form.Input
+              label="Gif URL"
+              name="gif_url"
+              defaultValue={gif_url}
+              onChange={this.handleChange}
+            />
+            <Form.Input
+              label="Description"
+              name="description"
+              defaultValue={description}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Button type="submit" primary>
+            Add
+          </Form.Button>
+        </Form>
+      </Segment>
     )
   }
 }
