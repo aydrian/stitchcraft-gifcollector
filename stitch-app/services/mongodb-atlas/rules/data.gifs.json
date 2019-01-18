@@ -12,6 +12,15 @@
             "insert": true,
             "delete": true,
             "additional_fields": {}
+        },
+        {
+            "name": "non-owner",
+            "apply_when": {},
+            "read": true,
+            "write": false,
+            "insert": false,
+            "delete": false,
+            "additional_fields": {}
         }
     ],
     "schema": {
